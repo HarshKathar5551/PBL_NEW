@@ -7,6 +7,7 @@ public class TransferRequest {
     public String transactionType; //
     public Device device;         //
     public Location location;     //
+    public String category;
 
     public static class Device {
         public String deviceId;   //

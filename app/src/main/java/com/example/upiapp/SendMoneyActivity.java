@@ -3,7 +3,6 @@ package com.example.upiapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -12,13 +11,14 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
 public class SendMoneyActivity extends AppCompatActivity {
 
     private EditText editReceiverUpiId, editAmount, editMessage;
-    private AutoCompleteTextView dropdownCategory;
+    private MaterialAutoCompleteTextView dropdownCategory;
     private Button btnPay, btnScanQr;
 
     @Override
@@ -43,18 +43,28 @@ public class SendMoneyActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> finish());
     }
 
-    // 🔹 SETUP CATEGORY DROPDOWN
+    // 🔹 SETUP CATEGORY DROPDOWN (MATERIAL)
     private void setupCategoryDropdown() {
-        String[] categories = getResources().getStringArray(R.array.payment_categories);
+
+        String[] categories = {
+                "FOOD",
+                "TRAVEL",
+                "SHOPPING",
+                "BILLS",
+                "EDUCATION",
+                "HEALTH",
+                "ENTERTAINMENT",
+                "INVESTMENT",
+                "OTHERS"
+        };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_dropdown_item_1line,
+                android.R.layout.simple_list_item_1,
                 categories
         );
 
         dropdownCategory.setAdapter(adapter);
-        dropdownCategory.setThreshold(1);
     }
 
     // 🔹 START QR SCANNER
@@ -107,12 +117,13 @@ public class SendMoneyActivity extends AppCompatActivity {
 
     // 🔹 PAYMENT VALIDATION + FLOW
     private void initiatePaymentFlow() {
+
         String receiverId = editReceiverUpiId.getText().toString().trim();
         String amountStr = editAmount.getText().toString().trim();
         String message = editMessage.getText().toString().trim();
         String category = dropdownCategory.getText().toString().trim();
 
-        // ✅ Mandatory checks
+        // ✅ Mandatory validations
         if (receiverId.isEmpty()) {
             Toast.makeText(this, "Receiver UPI ID required", Toast.LENGTH_SHORT).show();
             return;
@@ -141,7 +152,7 @@ public class SendMoneyActivity extends AppCompatActivity {
         intent.putExtra("RECEIVER_ID", receiverId);
         intent.putExtra("AMOUNT", amount);
         intent.putExtra("MESSAGE", message);
-        intent.putExtra("CATEGORY", category); // 🔥 IMPORTANT
+        intent.putExtra("CATEGORY", category);
         intent.putExtra("IS_DEV_MODE", false);
 
         startActivity(intent);
