@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@android:color/white">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Back"
+        android:tint="@android:color/black"
+        android:layout_gravity="start"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Payment"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="50dp"/>
+
+    <TextView
+        android:id="@+id/text_payment_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paying ₹XX to receiver@upi"
+        android:textSize="18sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="40dp"/>
+
+    <EditText
+        android:id="@+id/edit_upi_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter 4-digit PIN"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:background="@drawable/edittext_border_bg"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btn_confirm_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Payment"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:backgroundTint="#673AB7"/>
+
+</LinearLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background">
+
+    <!-- Animated Background Overlay -->
+    <View
+        android:id="@+id/overlay_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_background"
+        android:alpha="0.95" />
+
+    <!-- Decorative Circles -->
+    <View
+        android:id="@+id/circle_top"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-80dp"
+        android:layout_marginEnd="-80dp"
+        android:background="@drawable/splash_circle"
+        android:alpha="0.1" />
+
+    <View
+        android:id="@+id/circle_bottom"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-50dp"
+        android:layout_marginStart="-50dp"
+        android:background="@drawable/splash_circle"
+        android:alpha="0.1" />
+
+    <!-- Center Container with Logo and Text -->
+    <LinearLayout
+        android:id="@+id/center_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <!-- Logo Container with Glow Effect -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="0dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/logo_glow"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/splash_circle"
+                    android:alpha="0.3" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_centerInParent="true"
+                    app:cardCornerRadius="110dp"
+                    app:cardElevation="8dp"
+                    app:strokeWidth="4dp"
+                    app:strokeColor="#D5B244"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <ImageView
+                        android:id="@+id/img_logo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/applogo"
+                        android:contentDescription="@string/app_logo_description"
+                        android:scaleType="centerInside"
+                        android:padding="30dp" />
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- App Name with Shine Effect -->
+        <TextView
+            android:id="@+id/txt_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_upi"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#D5B244"
+            android:layout_marginTop="24dp"
+            android:letterSpacing="0.08"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/txt_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fast • Secure • Simple"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:alpha="0.8"
+            android:layout_marginTop="8dp"
+            android:letterSpacing="0.15" />
+
+    </LinearLayout>
+
+    <!-- Loading Section at Bottom -->
+    <LinearLayout
+        android:id="@+id/loading_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Custom Progress Bar Container -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- Rotating Progress Circle -->
+            <ProgressBar
+                android:id="@+id/progress_loader"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminateTint="#D5B244"
+                style="?android:attr/progressBarStyle" />
+
+            <!-- Pulse Circle Behind -->
+            <View
+                android:id="@+id/progress_pulse"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/splash_circle"
+                android:alpha="0.2" />
+        </RelativeLayout>
+
+        <!-- Loading Text with Animation -->
+        <TextView
+            android:id="@+id/txt_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading_text"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:alpha="0.9"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.05" />
+
+        <!-- Version Info -->
+        <TextView
+            android:id="@+id/txt_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v1.0.0"
+            android:textSize="11sp"
+            android:textColor="#FFFFFF"
+            android:alpha="0.5"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Powered By Section -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:alpha="0.6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by "
+            android:textSize="10sp"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPI Technology"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#D5B244" />
+    </LinearLayout>
+
+</RelativeLayout>

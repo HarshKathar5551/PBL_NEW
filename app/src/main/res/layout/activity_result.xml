@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F7FA">
+
+    <RelativeLayout
+        android:id="@+id/result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp">
+
+        <!-- Status Icon Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardStatusIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@android:color/white">
+
+            <ImageView
+                android:id="@+id/icon_status"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:contentDescription="Status Icon"
+                android:src="@drawable/ic_check_circle"
+                app:tint="#10B981" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Status Title -->
+        <TextView
+            android:id="@+id/text_status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardStatusIcon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:text="Transaction Successful"
+            android:textColor="#1A1A1A" />
+
+        <!-- Reason Text -->
+        <TextView
+            android:id="@+id/text_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_status_title"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:text="ML Engine: Safe Transaction. Ledger updated."
+            android:textColor="#6B7280" />
+
+        <!-- Transaction Details Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTransactionDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_reason"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E5E7EB"
+            app:cardBackgroundColor="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Transaction ID Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transaction ID"
+                    android:textSize="12sp"
+                    android:textColor="#9CA3AF"
+                    android:textStyle="bold" />
+
+                <!-- Transaction ID Value -->
+                <TextView
+                    android:id="@+id/text_transaction_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TXN ID: "
+                    android:textSize="16sp"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Done Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_done"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:text="Done / Go to Home"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#3B82F6"
+            app:elevation="4dp" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">UPIApp</string>
+    <string name="app_name_upi">UPIApp</string>
+
+    <!-- Splash Screen -->
+    <string name="app_logo_description">UPIApp - Secure Payment Solution</string>
+    <string name="loading_text">Initializing secure payment gateway...</string>
+
+    <!-- Common -->
+    <string name="welcome">Welcome to UPIApp</string>
+    <string name="tagline">Fast • Secure • Simple</string>
+
+    <!-- Buttons -->
+    <string name="send_money">Send Money</string>
+    <string name="receive_money">Receive Money</string>
+    <string name="done">Done</string>
+    <string name="continue_text">Continue</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="share">Share</string>
+
+    <string-array name="payment_categories">
+        <item>FOOD</item>
+        <item>TRAVEL</item>
+        <item>SHOPPING</item>
+        <item>BILLS</item>
+        <item>EDUCATION</item>
+        <item>HEALTH</item>
+        <item>ENTERTAINMENT</item>
+        <item>INVESTMENT</item>
+        <item>OTHERS</item>
+    </string-array>
+
+
+
+    <!-- Login & Auth -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+
+    <!-- Transaction -->
+    <string name="transaction_successful">Transaction Successful!</string>
+    <string name="transaction_failed">Transaction Failed</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="amount">Amount</string>
+    <string name="sender">Sender</string>
+    <string name="receiver">Receiver</string>
+
+    <!-- Errors -->
+    <string name="error_network">Network error. Please try again.</string>
+    <string name="error_invalid_input">Please enter valid information</string>
+
+    <!-- Misc -->
+    <string name="powered_by">Powered by UPI Technology</string>
+    <string name="version">v1.0.0</string>
+</resources>
+
+
+
+    <!--<resources>-->
+    <!--    <string name="app_name">UPIApp</string>-->
+    <!--    <string name="app_name_upi">Trust Pay</string>-->
+    <!--    <string name="app_logo_description">App Logo</string>-->
+    <!--    <string name="loading_text">Loading...</string>-->
+    <!--</resources>-->

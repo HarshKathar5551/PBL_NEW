@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F8F9FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@android:color/black"
+            android:layout_gravity="start" />
+
+        <!-- Header -->
+        <TextView
+            android:text="Send Money"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Payment Details Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Receiver UPI -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Receiver UPI ID"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="#673AB7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_receiver_upi_id"
+                        android:inputType="textEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Amount -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Amount"
+                    android:layout_marginTop="16dp"
+                    app:prefixText="₹ "
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="#673AB7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_amount"
+                        android:inputType="numberDecimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Category Dropdown (MANDATORY) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_category"
+                    android:hint="Payment Category"
+                    android:layout_marginTop="16dp"
+                    app:boxBackgroundMode="outline"
+
+                    app:boxStrokeColor="#673AB7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdown_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Message -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Message (Optional)"
+                    android:layout_marginTop="16dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="#673AB7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- QR Scan -->
+        <Button
+            android:id="@+id/btn_scan_qr"
+            android:text="Scan QR Code"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="#673AB7"
+            android:textColor="@android:color/white"/>
+
+        <!-- Pay Button -->
+        <Button
+            android:id="@+id/btn_pay"
+            android:text="Pay Now"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#10B981"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+</ScrollView>

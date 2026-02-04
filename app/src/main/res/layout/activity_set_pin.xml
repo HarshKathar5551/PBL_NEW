@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center_horizontal"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Your Secure PIN"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#673AB7"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This PIN will be required for every payment."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="40dp"/>
+
+    <EditText
+        android:id="@+id/edit_new_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Account Password"
+        android:inputType="textPassword|textVisiblePassword"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_border_bg"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/edit_confirm_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm 4-digit PIN"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_border_bg"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btn_set_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set PIN"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:backgroundTint="#673AB7"/>
+
+</LinearLayout>
