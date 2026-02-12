@@ -8,6 +8,12 @@ public class Transaction {
     public String status;         // [cite: 84]
     public String createdAt;     // [cite: 85]
 
+    public String message;
+    public String timestamp;
+
+    public String category;
+
+
 
 }
 

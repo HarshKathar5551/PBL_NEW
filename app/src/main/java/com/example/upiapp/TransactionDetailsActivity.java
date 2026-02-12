@@ -36,8 +36,10 @@ public class TransactionDetailsActivity extends AppCompatActivity {
         TextView textReceiver = findViewById(R.id.text_detail_receiver);
         TextView textAmount = findViewById(R.id.text_detail_amount);
         TextView textMessage = findViewById(R.id.text_detail_message);
-        TextView textRiskScore = findViewById(R.id.text_detail_risk_score);
-        TextView textReason = findViewById(R.id.text_detail_reason);
+//        TextView textRiskScore = findViewById(R.id.text_detail_risk_score);
+//        TextView textReason = findViewById(R.id.text_detail_reason);
+        TextView textCategory = findViewById(R.id.text_detail_category);
+
 
         // Get data from Intent
         Bundle extras = getIntent().getExtras();
@@ -51,14 +53,18 @@ public class TransactionDetailsActivity extends AppCompatActivity {
             String riskScore = extras.getString("RISK_SCORE", "N/A");
             String reason = extras.getString("REASON", "Data not available.");
 
+            String category = extras.getString("CATEGORY", "OTHERS");
+            textCategory.setText(category);
+
+
             // Populate UI
             textStatus.setText(status);
             textReceiver.setText(receiver);
             textSender.setText(sender);
             textAmount.setText(String.format("₹ %s", amount));
             textMessage.setText(message);
-            textRiskScore.setText(riskScore);
-            textReason.setText(reason);
+//            textRiskScore.setText(riskScore);
+//            textReason.setText(reason);
 
             // Set color based on status
             int color;
@@ -70,7 +76,7 @@ public class TransactionDetailsActivity extends AppCompatActivity {
                 color = Color.parseColor("#D81B60"); // Red
             }
             textStatus.setTextColor(color);
-            textRiskScore.setTextColor(color);
+            //textRiskScore.setTextColor(color);
         }
 
         // Back Button Listener with Animation

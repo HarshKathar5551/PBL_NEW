@@ -199,6 +199,16 @@
             android:clipToPadding="false"
             android:paddingBottom="16dp" />
 
+        <Button
+            android:id="@+id/btn_download_csv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Download CSV"
+            android:layout_margin="16dp"
+            android:backgroundTint="#673AB7"
+            android:textColor="@android:color/white"/>
+
+
         <!-- Empty State -->
         <LinearLayout
             android:id="@+id/layout_empty_state"
