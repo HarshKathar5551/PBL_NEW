@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
-    <string name="app_name">UPIApp</string>
+    <string name="app_name">Finance Assistant</string>
     <string name="app_name_upi">UPIApp</string>
 
     <!-- Splash Screen -->

@@ -70,7 +70,7 @@ public class ConfirmPinActivity extends AppCompatActivity {
         request.toUpi = receiverId;
 
         // ✅ FIX: preserve paise
-        request.amount = (int) Math.round(amount * 100); // backend-friendly
+        request.amount = (int) Math.round(amount); // backend-friendly
         request.pin = inputPin;
         request.transactionType = transactionType;
         request.category = category; // ✅ CRITICAL FIX
@@ -129,3 +129,5 @@ public class ConfirmPinActivity extends AppCompatActivity {
         });
     }
 }
+
+
