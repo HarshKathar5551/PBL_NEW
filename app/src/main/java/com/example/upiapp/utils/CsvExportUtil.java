@@ -43,7 +43,7 @@ public class CsvExportUtil {
             }
 
             StringBuilder csv = new StringBuilder();
-            csv.append("Transaction ID,Sender,Receiver,Amount,Status,Category,Message,Timestamp\n");
+            csv.append("Transaction ID,Sender,Receiver,Amount,Status,Category\n");
 
             for (Transaction t : list) {
                 csv.append(t.transactionId).append(",")
@@ -51,9 +51,9 @@ public class CsvExportUtil {
                         .append(t.toUpi).append(",")
                         .append(t.amount).append(",")
                         .append(t.status).append(",")
-                        .append(t.category).append(",")
-                        .append(t.message).append(",")
-                        .append(t.timestamp).append("\n");
+                        .append(t.category).append("\n");
+                        //.append(t.message).append(",")
+                        //.append(t.timestamp).append("\n");
             }
 
             outputStream.write(csv.toString().getBytes());
