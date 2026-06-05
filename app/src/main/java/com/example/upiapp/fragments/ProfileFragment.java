@@ -108,30 +108,48 @@ public class ProfileFragment extends Fragment {
 
         // --- PASTE THIS INSIDE onViewCreated ---
 
-// 1. Initialize the Night Mode Switch from the XML ID
+        // 1. Initialize the Night Mode Switch and Icon from the XML
         com.google.android.material.switchmaterial.SwitchMaterial switchNightMode = view.findViewById(R.id.switch_night_mode);
+        android.widget.ImageView iconNightMode = view.findViewById(R.id.icon_night_mode);
 
-// 2. Sync Switch state with Saved Preference on Load
-// We use SecurePrefManager to check if night mode was previously enabled
-        boolean isNightMode = prefManager.isNightModeEnabled(); // Ensure this method exists in SecurePrefManager
+        // 2. Sync UI state with Saved Preference on Load
+        boolean isNightMode = prefManager.isNightModeEnabled();
         switchNightMode.setChecked(isNightMode);
+        updateNightModeIcon(iconNightMode, isNightMode);
 
-// 3. Set the Listener to change theme and save preference
+        // 3. Set the Listener with enhanced animation and logic
         switchNightMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Save the choice in SecurePrefManager
-            prefManager.setNightMode(isChecked); // Ensure this method exists in SecurePrefManager
+            if (buttonView.isPressed()) { // Ensures it's a user-initiated change
+                prefManager.setNightMode(isChecked);
+                updateNightModeIcon(iconNightMode, isChecked);
 
-            // Apply the theme change immediately
-            if (isChecked) {
-                androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES);
-                android.widget.Toast.makeText(getActivity(), "Night Mode Enabled", android.widget.Toast.LENGTH_SHORT).show();
-            } else {
-                androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO);
-                android.widget.Toast.makeText(getActivity(), "Night Mode Disabled", android.widget.Toast.LENGTH_SHORT).show();
+                // Add a small delay for the user to see the switch animation before recreate
+                buttonView.postDelayed(() -> {
+                    if (isChecked) {
+                        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES);
+                    } else {
+                        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO);
+                    }
+
+                    if (getActivity() != null) {
+                        // Apply crossfade animation for smooth transition
+                        getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    }
+                }, 250);
             }
         });
 
 
+    }
+
+    private void updateNightModeIcon(android.widget.ImageView icon, boolean isNightMode) {
+        if (isNightMode) {
+            icon.setImageResource(android.R.drawable.ic_menu_recent_history); // Moon-like icon
+            icon.setColorFilter(android.graphics.Color.YELLOW);
+        } else {
+            icon.setImageResource(android.R.drawable.ic_menu_day); // Sun icon
+            icon.setColorFilter(android.graphics.Color.parseColor("#FFD700")); // Gold
+        }
     }
 
     private void fetchProfileData() {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F8F9FA">
+    android:background="?android:attr/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/circle_background"
+            android:backgroundTint="?attr/colorPrimaryContainer"
             android:elevation="4dp">
 
             <ImageView
@@ -27,7 +28,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:src="@android:drawable/ic_dialog_info"
-                android:tint="#673AB7"/>
+                app:tint="?attr/colorPrimary"/>
         </FrameLayout>
 
         <!-- Title -->
@@ -37,7 +38,7 @@
             android:text="Welcome Back"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="#1A1A1A"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginBottom="8dp"/>
 
         <!-- Subtitle -->
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="Login to continue"
             android:textSize="15sp"
-            android:textColor="#6B7280"
+            android:textColor="?attr/colorOutline"
             android:layout_marginBottom="40dp"/>
 
         <!-- Input Container -->
@@ -54,10 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@android:color/white"
+            android:background="?attr/colorSurface"
             android:padding="20dp"
-            android:elevation="2dp"
-            android:radius="12dp">
+            android:elevation="2dp">
 
             <!-- Username/Mobile Input -->
             <com.google.android.material.textfield.TextInputLayout
@@ -69,9 +69,9 @@
                 app:boxCornerRadiusTopEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
                 app:boxCornerRadiusBottomEnd="8dp"
-                app:boxStrokeColor="#673AB7"
+                app:boxStrokeColor="?attr/colorPrimary"
                 app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-                app:startIconTint="#673AB7"
+                app:startIconTint="?attr/colorPrimary"
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +79,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password Input -->
@@ -92,11 +93,11 @@
                 app:boxCornerRadiusTopEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
                 app:boxCornerRadiusBottomEnd="8dp"
-                app:boxStrokeColor="#673AB7"
+                app:boxStrokeColor="?attr/colorPrimary"
                 app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
-                app:startIconTint="#673AB7"
+                app:startIconTint="?attr/colorPrimary"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#673AB7"
+                app:endIconTint="?attr/colorPrimary"
                 android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -104,7 +105,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Forgot Password Link -->
@@ -113,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot Password?"
-                android:textColor="#673AB7"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:clickable="true"
@@ -133,7 +135,7 @@
             android:textStyle="bold"
             android:textAllCaps="false"
             app:cornerRadius="8dp"
-            app:backgroundTint="#673AB7"
+            app:backgroundTint="?attr/colorPrimary"
             android:elevation="4dp"
             android:layout_marginTop="24dp"/>
 
@@ -150,13 +152,13 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#E5E7EB"/>
+                android:background="?attr/colorOutlineVariant"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="OR"
-                android:textColor="#9CA3AF"
+                android:textColor="?attr/colorOutline"
                 android:textSize="12sp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"/>
@@ -165,7 +167,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#E5E7EB"/>
+                android:background="?attr/colorOutlineVariant"/>
         </LinearLayout>
 
         <!-- Sign Up Link -->
@@ -179,7 +181,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New User? "
-                android:textColor="#6B7280"
+                android:textColor="?attr/colorOutline"
                 android:textSize="14sp"/>
 
             <TextView
@@ -187,7 +189,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textColor="#673AB7"
+                android:textColor="?attr/colorPrimary"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:clickable="true"

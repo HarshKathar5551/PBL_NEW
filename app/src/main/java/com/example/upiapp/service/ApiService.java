@@ -26,16 +26,16 @@ public interface ApiService {
             @Body SetPinRequest request
     );
 
-    @GET("/wallet/balance") //
+    @GET("/wallet/balance")
     Call<WalletResponse> getBalance();
 
-    @GET("/transactions/history") //
+    @GET("/transactions/history")
     Call<TransactionHistoryResponse> getTransactionHistory();
 
-    @POST("/transactions/transfer") // [cite: 53]
+    @POST("/transactions/transfer")
     Call<TransferResponse> transfer(@Body TransferRequest request);
 
-    @GET("/profile") //
+    @GET("/profile")
     Call<ProfileResponse> getProfile();
 
 }

@@ -115,36 +115,6 @@ public class LocalDataStore {
         return sharedPrefs.getString(KEY_DISPLAY_NAME, "Demo User");
     }
 
-    // ----------------------------------------------------
-
-
-    // --- Fraud Engine Simulation (No change to logic) ---
-//    public Transaction simulateFraudCheck(String receiverId, double amount, String message) {
-//        java.util.Random random = new java.util.Random();
-//        int decisionInt = random.nextInt(100);
-//
-//        String status;
-//        int riskScore;
-//        String reason;
-//
-//        if (decisionInt < 60) {
-//            status = "APPROVED";
-//            riskScore = random.nextInt(30);
-//            reason = "Standard transaction pattern.";
-//        } else if (decisionInt < 85) {
-//            status = "FLAGGED";
-//            riskScore = random.nextInt(30) + 50;
-//            reason = "Unusual amount/new receiver.";
-//        } else {
-//            status = "BLOCKED";
-//            riskScore = random.nextInt(20) + 80;
-//            reason = "High velocity transaction alert.";
-//        }
-//
-//        return new Transaction(receiverId, amount, message, status, riskScore, reason);
-//    }
-
-    // --- Local Transaction History (No change) ---
 
     public void saveTransaction(Transaction transaction) {
         List<Transaction> transactions = getTransactions();

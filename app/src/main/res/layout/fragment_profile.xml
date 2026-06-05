@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F8F9FA">
+    android:background="?android:attr/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,45 +13,46 @@
         android:padding="24dp"
         android:gravity="center_horizontal">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="32dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Your Profile"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                android:textColor="#1A1A1A"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"/>
+                android:textColor="?attr/colorOnSurface"/>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true">
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:id="@+id/icon_night_mode"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="48dp"
                     android:src="@android:drawable/ic_menu_day"
-                    android:layout_marginEnd="8dp"
-                    app:tint="#673AB7" />
+                    app:tint="?attr/colorPrimary"/>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/switch_night_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:thumbTint="#673AB7"
-                    app:trackTint="#E1BEE7"/>
-            </LinearLayout>
-        </RelativeLayout>
+                    android:layout_gravity="center_vertical"
+                    app:thumbTint="@color/switch_thumb_selector"
+                    app:trackTint="@color/switch_track_selector"
+                    app:useMaterialThemeColors="false" />
+            </FrameLayout>
+        </LinearLayout>
 
         <FrameLayout
             android:layout_width="100dp"
@@ -64,7 +65,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/ic_menu_myplaces"
-                android:tint="#673AB7"
+                app:tint="?attr/colorPrimary"
                 android:layout_gravity="center"
                 android:contentDescription="Profile Icon"/>
         </FrameLayout>
@@ -75,7 +76,7 @@
             android:layout_marginBottom="24dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardBackgroundColor="@android:color/white">
+            app:cardBackgroundColor="?attr/colorSurface">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,7 +96,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_myplaces"
-                        android:tint="#673AB7"
+                        app:tint="?attr/colorPrimary"
                         android:layout_marginEnd="16dp"/>
 
                     <LinearLayout
@@ -109,7 +110,7 @@
                             android:layout_height="wrap_content"
                             android:text="Username"
                             android:textSize="12sp"
-                            android:textColor="#9CA3AF"
+                            android:textColor="?attr/colorOutline"
                             android:layout_marginBottom="4dp"/>
 
                         <TextView
@@ -119,14 +120,14 @@
                             android:text="Name XYZ"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"/>
+                            android:textColor="?attr/colorOnSurface"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#E5E7EB"
+                    android:background="?attr/colorOutlineVariant"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"/>
 
@@ -142,7 +143,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_manage"
-                        android:tint="#673AB7"
+                        app:tint="?attr/colorPrimary"
                         android:layout_marginEnd="16dp"/>
 
                     <LinearLayout
@@ -156,7 +157,7 @@
                             android:layout_height="wrap_content"
                             android:text="UPI ID"
                             android:textSize="12sp"
-                            android:textColor="#9CA3AF"
+                            android:textColor="?attr/colorOutline"
                             android:layout_marginBottom="4dp"/>
 
                         <TextView
@@ -166,14 +167,14 @@
                             android:text="user123@demoupi"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"/>
+                            android:textColor="?attr/colorOnSurface"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#E5E7EB"
+                    android:background="?attr/colorOutlineVariant"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"/>
 
@@ -189,7 +190,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_call"
-                        android:tint="#673AB7"
+                        app:tint="?attr/colorPrimary"
                         android:layout_marginEnd="16dp"/>
 
                     <LinearLayout
@@ -203,7 +204,7 @@
                             android:layout_height="wrap_content"
                             android:text="Mobile Number"
                             android:textSize="12sp"
-                            android:textColor="#9CA3AF"
+                            android:textColor="?attr/colorOutline"
                             android:layout_marginBottom="4dp"/>
 
                         <TextView
@@ -213,7 +214,7 @@
                             android:text="+91 8421497761"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"/>
+                            android:textColor="?attr/colorOnSurface"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -228,7 +229,7 @@
             android:layout_marginBottom="24dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardBackgroundColor="@android:color/white">
+            app:cardBackgroundColor="?attr/colorSurface">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -241,7 +242,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_menu_preferences"
-                    android:tint="#673AB7"
+                    app:tint="?attr/colorPrimary"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -250,7 +251,7 @@
                     android:layout_weight="1"
                     android:text="Developer Mode"
                     android:textSize="16sp"
-                    android:textColor="#1A1A1A"
+                    android:textColor="?attr/colorOnSurface"
                     android:textStyle="bold"/>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -258,8 +259,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    app:thumbTint="#673AB7"
-                    app:trackTint="#E1BEE7"/>
+                    app:thumbTint="?attr/colorPrimary"
+                    app:trackTint="?attr/colorSecondaryContainer"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -278,9 +279,9 @@
                 android:textStyle="bold"
                 android:textAllCaps="false"
                 app:cornerRadius="8dp"
-                app:backgroundTint="#673AB7"
+                app:backgroundTint="?attr/colorPrimary"
                 app:icon="@android:drawable/ic_lock_idle_lock"
-                app:iconTint="@android:color/white"
+                app:iconTint="?attr/colorOnPrimary"
                 android:elevation="2dp"
                 android:layout_marginBottom="12dp"/>
 

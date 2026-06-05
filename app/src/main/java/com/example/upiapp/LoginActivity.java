@@ -34,16 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        dataStore = new LocalDataStore(this);
-//
-//        // CHECK LOGIN STATUS FIRST (Crucial for the overall flow)
-//        if (dataStore.isLoggedIn()) {
-//            // NOTE: If you decide to add PIN validation on startup, this needs to check for a PIN too.
-//            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//            finish();
-//            return;
-//        }
-
         // Initialize UI components
         editUsername = findViewById(R.id.edit_username);
         editPassword = findViewById(R.id.edit_password);
@@ -131,6 +121,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     // 4. USE UTILITY METHOD to store the token securely
                     prefManager.saveToken(jwtToken);
+                    
+                    // ✅ Save the mobile number for security alerts
+                    prefManager.saveMobile(inputUsername);
 
                     // Accessing corrected field
                     String userIdentifier = loginData.getUser().getUpiId();
@@ -151,12 +144,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     Log.e("LOGIN", "Error Code: " + response.code());
+                    Toast.makeText(LoginActivity.this, "Login Failed: Invalid credentials", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(retrofit2.Call<LoginResponse> call, Throwable t) {
                 Log.e("LOGIN", "Network Error", t);
+                Toast.makeText(LoginActivity.this, "Network error. Please try again.", Toast.LENGTH_SHORT).show();
             }
         });
 

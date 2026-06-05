@@ -66,4 +66,13 @@ public class SecurePrefManager {
     public boolean isNightModeEnabled() {
         return securePrefs.getBoolean("night_mode_enabled", false);
     }
+
+    public String getMobile() {
+
+        return securePrefs.getString("mobile", null);
+    }
+
+    public void saveMobile(String inputUsername) {
+        securePrefs.edit().putString("mobile", inputUsername).apply();
+    }
 }

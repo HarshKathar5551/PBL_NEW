@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.upiapp.service.ApiService;
 import com.example.upiapp.utils.SecurePrefManager;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
@@ -12,40 +14,45 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    private static final String BASE_URL = "http://10.206.90.96:8083";
+    private static final String BASE_URL = "https://finance-assistant-backend-bw3u.onrender.com/";
 
-    private static Retrofit retrofit = null;
+    private static ApiService apiService = null;
 
     public static ApiService getClient(Context context) {
-        // We use an Interceptor to automatically add the Token to every request
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(chain -> {
-                    Request original = chain.request();
+        if (apiService == null) {
+            // Use Application Context to prevent memory leaks if an Activity context is passed
+            Context appContext = context.getApplicationContext();
 
-                    // Access the token directly using your utility class
-                    SecurePrefManager prefManager = new SecurePrefManager(context);
-                    String token = prefManager.getToken();
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .writeTimeout(30, TimeUnit.SECONDS)
+                    .addInterceptor(chain -> {
+                        Request original = chain.request();
 
-                    if (token != null) {
-                        // Build the request with the required Authorization header [cite: 5, 32]
-                        Request request = original.newBuilder()
-                                .header("Authorization", "Bearer " + token)
-                                .header("Content-Type", "application/json")  // [cite: 4]
-                                .method(original.method(), original.body())
-                                .build();
-                        return chain.proceed(request);
-                    }
-                    return chain.proceed(original);
-                }).build();
+                        // Access the token using the application context
+                        SecurePrefManager prefManager = new SecurePrefManager(appContext);
+                        String token = prefManager.getToken();
 
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
+                        if (token != null) {
+                            Request request = original.newBuilder()
+                                    .header("Authorization", "Bearer " + token)
+                                    .header("Content-Type", "application/json")
+                                    .method(original.method(), original.body())
+                                    .build();
+                            return chain.proceed(request);
+                        }
+                        return chain.proceed(original);
+                    }).build();
+
+            Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(client) // Attach the Interceptor here
+                    .client(client)
                     .build();
+            
+            apiService = retrofit.create(ApiService.class);
         }
-        return retrofit.create(ApiService.class);
+        return apiService;
     }
 }
-

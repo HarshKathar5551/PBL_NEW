@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F5F7FA">
+    android:background="?android:attr/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,8 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -49,14 +50,14 @@
                     android:text="UPIApp"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:textColor="#1A1A1A" />
+                    android:textColor="?attr/colorOnSurface" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Secure · Fast · Reliable"
                     android:textSize="12sp"
-                    android:textColor="#6B7280"
+                    android:textColor="?attr/colorOutline"
                     android:layout_marginTop="2dp" />
             </LinearLayout>
 
@@ -68,7 +69,7 @@
                 android:src="@android:drawable/ic_popup_reminder"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Notifications"
-                app:tint="#6B7280" />
+                app:tint="?attr/colorOutline" />
         </LinearLayout>
 
         <!-- Secure Payment Image Card -->
@@ -97,7 +98,7 @@
             android:text="Quick Actions"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#1A1A1A"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginBottom="16dp" />
 
         <!-- Send Money Button -->
@@ -109,7 +110,7 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:strokeWidth="0dp"
-            app:cardBackgroundColor="@android:color/white">
+            app:cardBackgroundColor="?attr/colorSurface">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,14 +126,14 @@
                     android:layout_height="56dp"
                     app:cardCornerRadius="28dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="#EDE7F6">
+                    app:cardBackgroundColor="?attr/colorPrimaryContainer">
 
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center"
                         android:src="@android:drawable/ic_menu_send"
-                        android:tint="#673AB7"
+                        app:tint="?attr/colorPrimary"
                         android:contentDescription="Send Money Icon" />
                 </com.google.android.material.card.MaterialCardView>
 
@@ -150,14 +151,14 @@
                         android:text="Send Money"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="#1A1A1A" />
+                        android:textColor="?attr/colorOnSurface" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Transfer funds instantly"
                         android:textSize="13sp"
-                        android:textColor="#6B7280"
+                        android:textColor="?attr/colorOutline"
                         android:layout_marginTop="2dp" />
                 </LinearLayout>
 
@@ -167,7 +168,7 @@
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_media_play"
                     android:rotation="180"
-                    android:tint="#9CA3AF"
+                    app:tint="?attr/colorOutline"
                     android:contentDescription="Navigate" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -181,7 +182,7 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:strokeWidth="0dp"
-            app:cardBackgroundColor="@android:color/white">
+            app:cardBackgroundColor="?attr/colorSurface">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -197,14 +198,14 @@
                     android:layout_height="56dp"
                     app:cardCornerRadius="28dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="#EDE7F6">
+                    app:cardBackgroundColor="?attr/colorPrimaryContainer">
 
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center"
                         android:src="@android:drawable/ic_input_get"
-                        android:tint="#673AB7"
+                        app:tint="?attr/colorPrimary"
                         android:contentDescription="Receive Money Icon" />
                 </com.google.android.material.card.MaterialCardView>
 
@@ -222,14 +223,14 @@
                         android:text="Receive Money"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="#1A1A1A" />
+                        android:textColor="?attr/colorOnSurface" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Request payment from anyone"
                         android:textSize="13sp"
-                        android:textColor="#6B7280"
+                        android:textColor="?attr/colorOutline"
                         android:layout_marginTop="2dp" />
                 </LinearLayout>
 
@@ -239,7 +240,79 @@
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_media_play"
                     android:rotation="180"
-                    android:tint="#9CA3AF"
+                    app:tint="?attr/colorOutline"
+                    android:contentDescription="Navigate" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Financial Advisory Button -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_financial_advisory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="?attr/colorSurface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackground">
+
+                <!-- Icon Container -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="?attr/colorPrimaryContainer">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_account_balance_wallet_black_24dp"
+                        app:tint="?attr/colorPrimary"
+                        android:contentDescription="Financial Advisory Icon" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Financial Advisory"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Get expert financial guidance"
+                        android:textSize="13sp"
+                        android:textColor="?attr/colorOutline"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <!-- Arrow Icon -->
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@android:drawable/ic_media_play"
+                    android:rotation="180"
+                    app:tint="?attr/colorOutline"
                     android:contentDescription="Navigate" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -265,8 +338,8 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeWidth="1dp"
-            app:strokeColor="#E5E7EB"
-            app:cardBackgroundColor="#F9FAFB">
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:cardBackgroundColor="?attr/colorSurfaceVariant">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -280,7 +353,7 @@
                     android:text="Why Choose UPIApp?"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#1A1A1A"
+                    android:textColor="?attr/colorOnSurface"
                     android:layout_marginBottom="12dp" />
 
                 <!-- Feature 1 -->
@@ -295,7 +368,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@android:drawable/checkbox_on_background"
-                        android:tint="#10B981"
+                        app:tint="#10B981"
                         android:contentDescription="Check" />
 
                     <TextView
@@ -303,7 +376,7 @@
                         android:layout_height="wrap_content"
                         android:text="Bank-level security encryption"
                         android:textSize="14sp"
-                        android:textColor="#6B7280"
+                        android:textColor="?attr/colorOutline"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
 
@@ -327,7 +400,7 @@
                         android:layout_height="wrap_content"
                         android:text="Visual money insights"
                         android:textSize="14sp"
-                        android:textColor="#6B7280"
+                        android:textColor="?attr/colorOutline"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
 
@@ -342,7 +415,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@android:drawable/checkbox_on_background"
-                        android:tint="#10B981"
+                        app:tint="#10B981"
                         android:contentDescription="Check" />
 
                     <TextView
@@ -350,7 +423,7 @@
                         android:layout_height="wrap_content"
                         android:text="Personalized financial guidance"
                         android:textSize="14sp"
-                        android:textColor="#6B7280"
+                        android:textColor="?attr/colorOutline"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
             </LinearLayout>

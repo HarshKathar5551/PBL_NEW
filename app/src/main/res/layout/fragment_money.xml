@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F7FA">
+    android:background="?android:attr/colorBackground">
 
     <!-- Header Section with Balance -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#673AB7"
+        android:background="?attr/colorPrimary"
         android:padding="20dp"
         android:paddingBottom="32dp">
 
@@ -22,7 +22,7 @@
             android:src="@android:drawable/ic_menu_revert"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Back"
-            android:tint="@android:color/white"
+            app:tint="?attr/colorOnPrimary"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true" />
 
@@ -35,7 +35,7 @@
             android:text="Transaction History"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white" />
+            android:textColor="?attr/colorOnPrimary" />
 
         <!-- Filter Button -->
         <ImageButton
@@ -45,13 +45,14 @@
             android:src="@android:drawable/ic_menu_sort_by_size"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Filter"
-            android:tint="@android:color/white"
+            app:tint="?attr/colorOnPrimary"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true" />
     </RelativeLayout>
 
     <!-- Balance Card (Overlapping) -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -59,7 +60,7 @@
         android:layout_marginTop="-16dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="@android:color/white">
+        app:cardBackgroundColor="?attr/colorSurface">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +80,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_dialog_info"
-                    android:tint="#673AB7"
+                    app:tint="?attr/colorPrimary"
                     android:contentDescription="Balance"
                     android:layout_marginEnd="8dp" />
 
@@ -89,7 +90,7 @@
                     android:layout_weight="1"
                     android:text="Current Account Balance"
                     android:textSize="13sp"
-                    android:textColor="#6B7280"
+                    android:textColor="?attr/colorOutline"
                     android:textStyle="bold" />
 
                 <!-- Refresh Button -->
@@ -100,7 +101,7 @@
                     android:src="@android:drawable/ic_popup_sync"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="Refresh Balance"
-                    android:tint="#673AB7" />
+                    app:tint="?attr/colorPrimary" />
             </LinearLayout>
 
             <!-- Balance Amount -->
@@ -111,7 +112,7 @@
                 android:text="₹50,000.00"
                 android:textSize="36sp"
                 android:textStyle="bold"
-                android:textColor="#1A1A1A" />
+                android:textColor="?attr/colorOnSurface" />
 
             <!-- Balance Change Indicator -->
             <LinearLayout
@@ -125,7 +126,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@android:drawable/arrow_up_float"
-                    android:tint="#10B981"
+                    app:tint="#10B981"
                     android:contentDescription="Trend"
                     android:layout_marginEnd="4dp" />
 
@@ -164,7 +165,7 @@
                 android:text="Recent Transactions"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#1A1A1A" />
+                android:textColor="?attr/colorOnSurface" />
 
             <!-- Transaction Count Badge -->
             <com.google.android.material.card.MaterialCardView
@@ -172,7 +173,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="#EDE7F6">
+                app:cardBackgroundColor="?attr/colorPrimaryContainer">
 
                 <TextView
                     android:id="@+id/text_transaction_count"
@@ -181,7 +182,7 @@
                     android:text="24 txns"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:textColor="#673AB7"
+                    android:textColor="?attr/colorPrimary"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
                     android:paddingTop="6dp"
@@ -199,14 +200,15 @@
             android:clipToPadding="false"
             android:paddingBottom="16dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_download_csv"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:text="Download CSV"
             android:layout_margin="16dp"
-            android:backgroundTint="#673AB7"
-            android:textColor="@android:color/white"/>
+            app:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"
+            app:cornerRadius="12dp"/>
 
 
         <!-- Empty State -->
@@ -226,14 +228,14 @@
                 android:layout_height="120dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="8dp"
-                app:cardBackgroundColor="#F3F4F6">
+                app:cardBackgroundColor="?attr/colorSurfaceVariant">
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@android:drawable/ic_menu_recent_history"
-                    android:tint="#9CA3AF"
+                    app:tint="?attr/colorOutline"
                     android:contentDescription="No Transactions" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -244,7 +246,7 @@
                 android:text="No Transactions Yet"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="#1A1A1A"
+                android:textColor="?attr/colorOnSurface"
                 android:layout_marginTop="24dp" />
 
             <!-- Empty State Message -->
@@ -254,7 +256,7 @@
                 android:layout_height="wrap_content"
                 android:text="No transactions recorded yet.\nStart by sending money to someone!"
                 android:textSize="14sp"
-                android:textColor="#6B7280"
+                android:textColor="?attr/colorOutline"
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
                 android:layout_marginTop="8dp" />
@@ -267,13 +269,13 @@
                 android:text="Send Money Now"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/colorOnPrimary"
                 app:cornerRadius="12dp"
-                app:backgroundTint="#673AB7"
+                app:backgroundTint="?attr/colorPrimary"
                 app:elevation="4dp"
                 app:icon="@android:drawable/ic_menu_send"
                 app:iconGravity="textStart"
-                app:iconTint="@android:color/white"
+                app:iconTint="?attr/colorOnPrimary"
                 android:layout_marginTop="24dp" />
         </LinearLayout>
     </LinearLayout>

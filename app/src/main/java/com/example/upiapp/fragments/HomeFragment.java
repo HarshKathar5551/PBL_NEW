@@ -1,12 +1,12 @@
 package com.example.upiapp.fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -25,7 +25,7 @@ import com.google.android.material.card.MaterialCardView;
 public class HomeFragment extends Fragment {
 
     private SecurePrefManager prefManager;
-    private MaterialCardView cardSendMoney, cardReceiveMoney;
+    private MaterialCardView cardSendMoney, cardReceiveMoney, cardFinancialAdvisory;
     private ImageButton btnNotifications;
 
     @Nullable
@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
         // Initialize new card views
         cardSendMoney = view.findViewById(R.id.card_send_money);
         cardReceiveMoney = view.findViewById(R.id.card_receive_money);
+        cardFinancialAdvisory = view.findViewById(R.id.card_financial_advisory);
         btnNotifications = view.findViewById(R.id.btn_notifications);
 
         // Keep original buttons for backward compatibility (hidden in XML)
@@ -99,7 +100,16 @@ public class HomeFragment extends Fragment {
             startActivity(new Intent(getActivity(), ReceiveMoneyActivity.class));
         });
 
-        // 3. Handle Notifications click
+        // 3. Handle Financial Advisory click
+        if (cardFinancialAdvisory != null) {
+            cardFinancialAdvisory.setOnClickListener(v -> {
+                animateCardPress(cardFinancialAdvisory);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://finance-advisory.netlify.app/"));
+                startActivity(intent);
+            });
+        }
+
+        // 4. Handle Notifications click
         btnNotifications.setOnClickListener(v -> {
             animateButtonPress(btnNotifications);
             Toast.makeText(getActivity(), "No new notifications", Toast.LENGTH_SHORT).show();
@@ -129,6 +139,19 @@ public class HomeFragment extends Fragment {
                     .alpha(1f)
                     .translationX(0f)
                     .setStartDelay(300)
+                    .setDuration(500)
+                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .start();
+        }
+
+        // Animate Financial Advisory Card
+        if (cardFinancialAdvisory != null) {
+            cardFinancialAdvisory.setAlpha(0f);
+            cardFinancialAdvisory.setTranslationX(-100f);
+            cardFinancialAdvisory.animate()
+                    .alpha(1f)
+                    .translationX(0f)
+                    .setStartDelay(400)
                     .setDuration(500)
                     .setInterpolator(new AccelerateDecelerateInterpolator())
                     .start();

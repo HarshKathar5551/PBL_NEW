@@ -61,17 +61,46 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.textTimestamp.setText(formattedTime);
         holder.textStatus.setText(transaction.status);
 
+        // Update status colors based on backend response
+        String status = transaction.status != null ? transaction.status : "UNKNOWN";
+        int statusColor;
+        int statusBgColor;
+
+        if (status.equalsIgnoreCase("SUCCESS") || status.equalsIgnoreCase("APPROVED")) {
+            statusColor = Color.parseColor("#10B981"); // Green
+            statusBgColor = Color.parseColor("#2210B981"); // Light Green
+        } else if (status.equalsIgnoreCase("PENDING") || status.equalsIgnoreCase("FLAGGED")) {
+            statusColor = Color.parseColor("#FF9800"); // Orange
+            statusBgColor = Color.parseColor("#22FF9800"); // Light Orange
+        } else { // FAILURE, BLOCKED or UNKNOWN
+            statusColor = Color.parseColor("#DC2626"); // Red
+            statusBgColor = Color.parseColor("#22DC2626"); // Light Red
+        }
+
+        holder.textStatus.setTextColor(statusColor);
+        holder.textStatus.setBackgroundColor(statusBgColor);
+
         // ✅ CATEGORY FROM BACKEND
         holder.textCategory.setText(transaction.category);
 
-        // --- AMOUNT + COLOR LOGIC (UNCHANGED) ---
         holder.textAmount.setText("₹ " + transaction.amount);
 
-        if (loggedInUpi != null && loggedInUpi.equalsIgnoreCase(transaction.toUpi)) {
-            holder.textAmount.setTextColor(Color.parseColor("#4CAF50"));
+        // Amount Color Logic
+        boolean isCredit = loggedInUpi != null && loggedInUpi.equalsIgnoreCase(transaction.toUpi);
+        int amountColor;
+
+        if (status.equalsIgnoreCase("BLOCKED") || status.equalsIgnoreCase("FLAGGED") || status.equalsIgnoreCase("FAILURE")) {
+            amountColor = Color.parseColor("#DC2626"); // Red for blocked/flagged/failure
+        } else if (isCredit) {
+            amountColor = Color.parseColor("#10B981"); // Green for credited
+        } else {
+            amountColor = Color.parseColor("#6B7280"); // Gray for sent
+        }
+        holder.textAmount.setTextColor(amountColor);
+
+        if (isCredit) {
             holder.textReceiver.setText(transaction.fromUpi);
         } else {
-            holder.textAmount.setTextColor(Color.BLACK);
             holder.textReceiver.setText(transaction.toUpi);
         }
 
@@ -83,8 +112,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             intent.putExtra("RECEIVER", transaction.toUpi);
             intent.putExtra("AMOUNT", String.valueOf(transaction.amount));
             intent.putExtra("STATUS", transaction.status);
-            intent.putExtra("CATEGORY", transaction.category); // ✅ PASS CATEGORY
-//            intent.putExtra("DATE", formattedTime);
+            intent.putExtra("CATEGORY", transaction.category);
+            intent.putExtra("IS_CREDIT", isCredit);
             context.startActivity(intent);
         });
     }
@@ -105,7 +134,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             textAmount = itemView.findViewById(R.id.text_amount);
             textStatus = itemView.findViewById(R.id.text_status);
             textTimestamp = itemView.findViewById(R.id.text_timestamp);
-            textCategory = itemView.findViewById(R.id.text_category); // ✅ NEW
+            textCategory = itemView.findViewById(R.id.text_category);
         }
     }
 }
